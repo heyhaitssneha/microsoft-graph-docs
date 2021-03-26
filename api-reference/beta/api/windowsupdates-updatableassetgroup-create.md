@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-POST ** Collection URI for microsoft.graph.windowsUpdates.updatableAssetGroup not found
+POST /admin/windows/updates/updatableAssets
 ```
 
 ## Request headers
@@ -42,12 +42,7 @@ POST ** Collection URI for microsoft.graph.windowsUpdates.updatableAssetGroup no
 ## Request body
 In the request body, supply a JSON representation of the [updatableAssetGroup](../resources/windowsupdates-updatableassetgroup.md) object.
 
-The following table shows the properties that are required when you create the [updatableAssetGroup](../resources/windowsupdates-updatableassetgroup.md).
-
-|Property|Type|Description|
-|:---|:---|:---|
-|id|String|**TODO: Add Description** Inherited from [updatableAsset](../resources/windowsupdates-updatableasset.md)|
-
+No properties are required.
 
 
 ## Response
@@ -63,7 +58,7 @@ If successful, this method returns a `201 Created` response code and an [updatab
 }
 -->
 ``` http
-POST https://graph.microsoft.com/beta** Collection URI for microsoft.graph.windowsUpdates.updatableAssetGroup not found
+POST https://graph.microsoft.com/beta/admin/windows/updates/updatableAssets
 Content-Type: application/json
 Content-length: 76
 

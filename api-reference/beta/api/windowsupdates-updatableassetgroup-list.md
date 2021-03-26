@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-GET ** Collection URI for microsoft.graph.windowsUpdates.updatableAssetGroup not found
+GET /admin/windows/updates/updatableAssets/?$filter=isof('microsoft.graph.windowsUpdates.updatableAssetGroup')
 ```
 
 ## Optional query parameters
@@ -78,6 +78,14 @@ Content-Type: application/json
     {
       "@odata.type": "#microsoft.graph.windowsUpdates.updatableAssetGroup",
       "id": "5c55730b-730b-5c55-0b73-555c0b73555c"
+    },
+    {
+      "@odata.type": "#microsoft.graph.windowsUpdates.updatableAssetGroup",
+      "id": "deb43c16-77ff-465d-aa79-366a107a6c7a"
+    },
+    {
+      "@odata.type": "#microsoft.graph.windowsUpdates.updatableAssetGroup",
+      "id": "312643e6-b805-419f-bdf7-1a104dd6c8b9"
     }
   ]
 }

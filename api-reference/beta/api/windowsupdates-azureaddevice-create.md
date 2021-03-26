@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-POST ** Collection URI for microsoft.graph.windowsUpdates.azureADDevice not found
+POST /admin/windows/updates/updatableAssets
 ```
 
 ## Request headers
@@ -46,10 +46,7 @@ The following table shows the properties that are required when you create the [
 
 |Property|Type|Description|
 |:---|:---|:---|
-|id|String|**TODO: Add Description** Inherited from [updatableAsset](../resources/windowsupdates-updatableasset.md)|
-|errors|[updatableAssetError](../resources/windowsupdates-updatableasseterror.md) collection|**TODO: Add Description**|
-|enrollments|[updatableAssetEnrollment](../resources/windowsupdates-updatableassetenrollment.md) collection|**TODO: Add Description**|
-
+|id|String|The Azure AD identifier for the device.|
 
 
 ## Response
@@ -65,22 +62,13 @@ If successful, this method returns a `201 Created` response code and an [azureAD
 }
 -->
 ``` http
-POST https://graph.microsoft.com/beta** Collection URI for microsoft.graph.windowsUpdates.azureADDevice not found
+POST https://graph.microsoft.com/beta/admin/windows/updates/updatableAssets
 Content-Type: application/json
 Content-length: 313
 
 {
   "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
-  "errors": [
-    {
-      "@odata.type": "microsoft.graph.windowsUpdates.azureADDeviceRegistrationError"
-    }
-  ],
-  "enrollments": [
-    {
-      "@odata.type": "microsoft.graph.windowsUpdates.updateManagementEnrollment"
-    }
-  ]
+  "id": "983f03cd-03cd-983f-cd03-3f98cd033f98"
 }
 ```
 

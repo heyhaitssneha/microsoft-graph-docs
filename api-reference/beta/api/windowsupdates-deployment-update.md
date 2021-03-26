@@ -46,13 +46,8 @@ The following table shows the properties that are required when you update the [
 
 |Property|Type|Description|
 |:---|:---|:---|
-|id|String|**TODO: Add Description**|
 |state|[deploymentState](../resources/windowsupdates-deploymentstate.md)|**TODO: Add Description**|
-|content|[deployableContent](../resources/windowsupdates-deployablecontent.md)|**TODO: Add Description**|
 |settings|[deploymentSettings](../resources/windowsupdates-deploymentsettings.md)|**TODO: Add Description**|
-|createdDateTime|DateTimeOffset|**TODO: Add Description**|
-|lastModifiedDateTime|DateTimeOffset|**TODO: Add Description**|
-
 
 
 ## Response
@@ -61,6 +56,8 @@ If successful, this method returns a `200 OK` response code and an updated [depl
 
 ## Examples
 
+In this example, the deployment is paused by updating the `requestedValue` of the deployment `state`.
+
 ### Request
 <!-- {
   "blockType": "request",
@@ -68,20 +65,81 @@ If successful, this method returns a `200 OK` response code and an updated [depl
 }
 -->
 ``` http
-PATCH https://graph.microsoft.com/beta/admin/windows/updates/deployments/{deploymentId}
+PATCH https://graph.microsoft.com/beta/admin/windows/updates/deployments/b5171742-1742-b517-4217-17b5421717b5
 Content-Type: application/json
 Content-length: 344
 
 {
   "@odata.type": "#microsoft.graph.windowsUpdates.deployment",
   "state": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deploymentState"
+    "@odata.type": "microsoft.graph.windowsUpdates.deploymentState",
+    "requestedValue": "paused"
+  },
+}
+```
+
+
+### Response
+**Note:** The response object shown here might be shortened for readability.
+<!-- {
+  "blockType": "response",
+  "truncated": true
+}
+-->
+``` http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "@odata.type": "#microsoft.graph.windowsUpdates.deployment",
+  "id": "b5171742-1742-b517-4217-17b5421717b5",
+  "state": {
+    "@odata.type": "microsoft.graph.windowsUpdates.deploymentState",
+    "reasons": [
+      {
+        "@odata.type": "microsoft.graph.windowsUpdates.deploymentStateReason",
+        "value": "pausedByRequest"
+      }
+    ]
+    "requestedValue": "paused",
+    "value": "paused"
   },
   "content": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deployableContent"
+    "@odata.type": "microsoft.graph.windowsUpdates.featureUpdateReference",
+    "version": "foo"
   },
+  "settings": null,
+  "createdDateTime": "String (timestamp)",
+  "lastModifiedDateTime": "String (timestamp)"
+}
+```
+
+In this example, the deployment's `settings` are updated to add a monitoring rule.
+
+### Request
+<!-- {
+  "blockType": "request",
+  "name": "update_deployment"
+}
+-->
+``` http
+PATCH https://graph.microsoft.com/beta/admin/windows/updates/deployments/b5171742-1742-b517-4217-17b5421717b5
+Content-Type: application/json
+Content-length: 344
+
+{
+  "@odata.type": "#microsoft.graph.windowsUpdates.deployment",
   "settings": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deploymentSettings"
+    "@odata.type": "microsoft.graph.windowsUpdates.windowsDeploymentSettings",
+    "monitoring": {
+      "monitoringRules": [
+        {
+          "signal": "rollback",
+          "threshold": 5,
+          "action": "pauseDeployment"
+        }
+      ]
+    }
   }
 }
 ```
@@ -102,13 +160,31 @@ Content-Type: application/json
   "@odata.type": "#microsoft.graph.windowsUpdates.deployment",
   "id": "b5171742-1742-b517-4217-17b5421717b5",
   "state": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deploymentState"
+    "@odata.type": "microsoft.graph.windowsUpdates.deploymentState",
+    "reasons": [
+      {
+        "@odata.type": "microsoft.graph.windowsUpdates.deploymentStateReason",
+        "value": "offeringByRequest"
+      }
+    ]
+    "requestedValue": "none",
+    "value": "offering"
   },
   "content": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deployableContent"
+    "@odata.type": "microsoft.graph.windowsUpdates.featureUpdateReference",
+    "version": "foo"
   },
   "settings": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deploymentSettings"
+    "@odata.type": "microsoft.graph.windowsUpdates.windowsDeploymentSettings",
+    "monitoring": {
+      "monitoringRules": [
+        {
+          "signal": "rollback",
+          "threshold": 5,
+          "action": "pauseDeployment"
+        }
+      ]
+    }
   },
   "createdDateTime": "String (timestamp)",
   "lastModifiedDateTime": "String (timestamp)"

@@ -12,7 +12,7 @@ Namespace: microsoft.graph.windowsUpdates
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Read the properties and relationships of an [azureADDevice](../resources/windowsupdates-azureaddevice.md) object.
+Read the properties of an [azureADDevice](../resources/windowsupdates-azureaddevice.md) object.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-GET /azureADDevice
+GET /admin/windows/updates/updatableAssets/{azureADDeviceId}
 ```
 
 ## Optional query parameters
@@ -57,7 +57,7 @@ If successful, this method returns a `200 OK` response code and an [azureADDevic
 }
 -->
 ``` http
-GET https://graph.microsoft.com/beta/azureADDevice
+GET https://graph.microsoft.com/beta/admin/windows/updates/updatableAssets/983f03cd-03cd-983f-cd03-3f98cd033f98
 ```
 
 
@@ -77,14 +77,11 @@ Content-Type: application/json
   "value": {
     "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
     "id": "983f03cd-03cd-983f-cd03-3f98cd033f98",
-    "errors": [
-      {
-        "@odata.type": "microsoft.graph.windowsUpdates.azureADDeviceRegistrationError"
-      }
-    ],
+    "errors": [],
     "enrollments": [
       {
-        "@odata.type": "microsoft.graph.windowsUpdates.updateManagementEnrollment"
+        "@odata.type": "microsoft.graph.windowsUpdates.updateManagementEnrollment",
+        "updateCategory": "feature"
       }
     ]
   }

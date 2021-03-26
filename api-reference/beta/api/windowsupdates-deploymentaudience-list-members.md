@@ -12,7 +12,7 @@ Namespace: microsoft.graph.windowsUpdates
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Get the updatableAsset resources from the members navigation property.
+List the updatable assets that are members of a deployment audience.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
@@ -76,9 +76,23 @@ Content-Type: application/json
 {
   "value": [
     {
-      "@odata.type": "#microsoft.graph.windowsUpdates.updatableAsset",
+      "@odata.type": "#microsoft.graph.windowsUpdates.updatableAssetGroup",
       "id": "f5ba7065-7065-f5ba-6570-baf56570baf5"
-    }
+    },
+    {
+      "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
+      "id": "fb95f07d-9e73-411d-99ab-7eca3a5122b1",
+      "errors": [
+        {
+          "@odata.type": "microsoft.graph.windowsUpdates.azureADDeviceRegistrationError"
+        }
+      ],
+      "enrollments": [
+        {
+          "@odata.type": "microsoft.graph.windowsUpdates.updateManagementEnrollment"
+        }
+      ]
+    },
   ]
 }
 ```

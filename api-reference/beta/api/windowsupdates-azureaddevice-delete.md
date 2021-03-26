@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-DELETE /azureADDevice
+DELETE /admin/windows/updates/updatableAssets/{azureADDeviceId}
 ```
 
 ## Request headers
@@ -54,7 +54,7 @@ If successful, this method returns a `204 No Content` response code.
 }
 -->
 ``` http
-DELETE https://graph.microsoft.com/beta/azureADDevice
+DELETE https://graph.microsoft.com/beta//admin/windows/updates/updatableAssets/{azureADDeviceId}
 ```
 
 

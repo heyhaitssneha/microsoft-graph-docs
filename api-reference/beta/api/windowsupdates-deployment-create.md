@@ -46,12 +46,7 @@ The following table shows the properties that are required when you create the [
 
 |Property|Type|Description|
 |:---|:---|:---|
-|id|String|**TODO: Add Description**|
-|state|[deploymentState](../resources/windowsupdates-deploymentstate.md)|**TODO: Add Description**|
 |content|[deployableContent](../resources/windowsupdates-deployablecontent.md)|**TODO: Add Description**|
-|settings|[deploymentSettings](../resources/windowsupdates-deploymentsettings.md)|**TODO: Add Description**|
-|createdDateTime|DateTimeOffset|**TODO: Add Description**|
-|lastModifiedDateTime|DateTimeOffset|**TODO: Add Description**|
 
 
 
@@ -74,14 +69,15 @@ Content-length: 344
 
 {
   "@odata.type": "#microsoft.graph.windowsUpdates.deployment",
-  "state": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deploymentState"
-  },
   "content": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deployableContent"
+    "@odata.type": "microsoft.graph.windowsUpdates.featureUpdateReference",
+    "version": "foo"
   },
   "settings": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deploymentSettings"
+    "@odata.type": "microsoft.graph.windowsUpdates.windowsDeploymentSettings",
+    "rollout": {
+      "devicesPerOffer": 100
+    }
   }
 }
 ```
@@ -103,13 +99,31 @@ Content-Type: application/json
   "@odata.type": "#microsoft.graph.windowsUpdates.deployment",
   "id": "b5171742-1742-b517-4217-17b5421717b5",
   "state": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deploymentState"
-  },
+    "@odata.type": "microsoft.graph.windowsUpdates.deploymentState",
+    "value": "offering",
+    "reasons": [
+      {
+        "@odata.type": "microsoft.graph.windowsUpdates.deploymentStateReason",
+        "value": "offeringByRequest"
+      }
+    ],
+    "requestedValue": "none",
+    "effectiveSinceDate": "String (timestamp)"
+    },
   "content": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deployableContent"
+    "@odata.type": "microsoft.graph.windowsUpdates.featureUpdateReference",
+    "version": "foo"
   },
   "settings": {
-    "@odata.type": "microsoft.graph.windowsUpdates.deploymentSettings"
+    "@odata.type": "microsoft.graph.windowsUpdates.windowsDeploymentSettings",
+    "rollout": {
+      "devicesPerOffer": 100,
+      "durationBetweenOffers": "P7D",
+      "startDateTime": null,
+      "endDateTime": null
+    },
+    "monitoring": null,
+    "userExperience": null
   },
   "createdDateTime": "String (timestamp)",
   "lastModifiedDateTime": "String (timestamp)"

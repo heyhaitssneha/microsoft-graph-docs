@@ -12,7 +12,7 @@ Namespace: microsoft.graph.windowsUpdates
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Get the catalogEntry resources from the entries navigation property.
+Get the list of entries from a [catalog](../resources/windowsupdates-catalog.md).
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
@@ -76,11 +76,21 @@ Content-Type: application/json
 {
   "value": [
     {
-      "@odata.type": "#microsoft.graph.windowsUpdates.catalogEntry",
+      "@odata.type": "#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry",
       "id": "c1dec151-c151-c1de-51c1-dec151c1dec1",
       "displayName": "String",
-      "releaseDate": "String (timestamp)",
-      "deployableUntilDateTime": "String (timestamp)"
+      "releaseDateTime": "String (timestamp)",
+      "deployableUntilDateTime": "String (timestamp)",
+      "version": "String"
+    },
+    {
+      "@odata.type": "#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry",
+      "id": "c1dec151-c151-c1de-51c1-dec151c1dec1",
+      "displayName": "String",
+      "releaseDateTime": "String (timestamp)",
+      "deployableUntilDateTime": "String (timestamp)",
+      "isExpeditable": true,
+      "qualityUpdateClassification": "security"
     }
   ]
 }

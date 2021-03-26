@@ -13,7 +13,7 @@ Namespace: microsoft.graph.windowsUpdates
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-**TODO: Add Description**
+A reference to specific quality update content to expedite. In a deployment, the same softwareUpdateReference could result in devices receiving different update revisions, but the content is considered contextually equivalent for all devices in the deployment.
 
 
 Inherits from [qualityUpdateReference](../resources/windowsupdates-qualityupdatereference.md).
@@ -21,9 +21,9 @@ Inherits from [qualityUpdateReference](../resources/windowsupdates-qualityupdate
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|classification|qualityUpdateClassification|**TODO: Add Description** Inherited from [qualityUpdateReference](../resources/windowsupdates-qualityupdatereference.md). Possible values are: `all`, `security`, `nonSecurity`.|
-|equivalentContent|equivalentContentOption|**TODO: Add Description**. Possible values are: `none`, `latestSecurity`.|
-|releaseDate|DateTimeOffset|**TODO: Add Description** Inherited from [qualityUpdateReference](../resources/windowsupdates-qualityupdatereference.md)|
+|classification|qualityUpdateClassification|Specifies the classification of the referenced content. Default value is security. Inherited from [qualityUpdateReference](../resources/windowsupdates-qualityupdatereference.md). Possible values are: `all`, `security`, `nonSecurity`.|
+|equivalentContent|equivalentContentOption|Specifies other content to consider as equivalent. Default value is latestSecurity. Possible values are: `none`, `latestSecurity`.|
+|releaseDateTime|DateTimeOffset|Specifies a quality update in the given servicingChannel with the given classification by its publish date (i.e. the last update published on the specified date). Any devices with an update that was published prior to the releaseDate will receive an expedited quality update. Inherited from [qualityUpdateReference](../resources/windowsupdates-qualityupdatereference.md)|
 
 ## Relationships
 None.

@@ -12,7 +12,7 @@ Namespace: microsoft.graph.windowsUpdates
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Get the updatableAsset resources from the members navigation property.
+List the members of an updatable asset group.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-GET /updatableAssetGroup/members
+GET /admin/windows/updates/updatableAssets/{updatableAssetGroupId}/members
 ```
 
 ## Optional query parameters
@@ -57,7 +57,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 }
 -->
 ``` http
-GET https://graph.microsoft.com/beta/updatableAssetGroup/members
+GET https://graph.microsoft.com/beta/admin/windows/updates/updatableAssets/{updatableAssetGroupId}/members
 ```
 
 
@@ -76,8 +76,20 @@ Content-Type: application/json
 {
   "value": [
     {
-      "@odata.type": "#microsoft.graph.windowsUpdates.updatableAsset",
+      "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
       "id": "f5ba7065-7065-f5ba-6570-baf56570baf5"
+    },
+    {
+      "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
+      "id": "6d49dfaf-9c24-42f7-9628-c136e35774c8"
+    },
+    {
+      "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
+      "id": "1f61492e-4e34-4dee-904a-0d38299e76b2"
+    },
+    {
+      "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
+      "id": "bfe3c2d1-4cef-4952-8c5e-30d56ccf0cdc"
     }
   ]
 }

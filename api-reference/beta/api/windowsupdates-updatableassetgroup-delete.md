@@ -12,7 +12,7 @@ Namespace: microsoft.graph.windowsUpdates
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Deletes an [updatableAssetGroup](../resources/windowsupdates-updatableassetgroup.md) object.
+Deletes an [updatableAssetGroup](../resources/windowsupdates-updatableassetgroup.md) object. When an [updatableAssetGroup](../resources/windowsupdates-updatableassetgroup.md) object, its member [updatableAsset](../resources/windowsupdates-updatableasset.md) objects are not deleted.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-DELETE /updatableAssetGroup
+DELETE /admin/windows/updates/updatableAssets/{updatableAssetGroupId}
 ```
 
 ## Request headers
@@ -54,7 +54,7 @@ If successful, this method returns a `204 No Content` response code.
 }
 -->
 ``` http
-DELETE https://graph.microsoft.com/beta/updatableAssetGroup
+DELETE https://graph.microsoft.com/beta/admin/windows/updates/updatableAssets/{updatableAssetGroupId}
 ```
 
 

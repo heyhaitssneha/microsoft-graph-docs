@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-GET /updatableAssetGroup
+GET /admin/windows/updates/updatableAssets/{updatableAssetGroupId}
 ```
 
 ## Optional query parameters
@@ -57,7 +57,7 @@ If successful, this method returns a `200 OK` response code and an [updatableAss
 }
 -->
 ``` http
-GET https://graph.microsoft.com/beta/updatableAssetGroup
+GET https://graph.microsoft.com/beta/admin/windows/updates/updatableAssets/5c55730b-730b-5c55-0b73-555c0b73555c
 ```
 
 

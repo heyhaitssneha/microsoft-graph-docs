@@ -12,7 +12,7 @@ Namespace: microsoft.graph.windowsUpdates
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Get the deploymentAudience resources from the audience navigation property.
+Get the deploymentAudience from the audience navigation property of a [deployment](../resources/windowsupdates-deployment.md) object.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
@@ -46,7 +46,7 @@ Do not supply a request body for this method.
 
 ## Response
 
-If successful, this method returns a `200 OK` response code and a collection of [deploymentAudience](../resources/deploymentaudience.md) objects in the response body.
+If successful, this method returns a `200 OK` response code and a [deploymentAudience](../resources/deploymentaudience.md) object in the response body.
 
 ## Examples
 

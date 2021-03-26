@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 }
 -->
 ``` http
-GET ** Collection URI for microsoft.graph.windowsUpdates.azureADDevice not found
+GET /admin/windows/updates/updatableAssets/?$filter=isof('microsoft.graph.windowsUpdates.azureADDevice')
 ```
 
 ## Optional query parameters
@@ -57,7 +57,7 @@ If successful, this method returns a `200 OK` response code and a collection of 
 }
 -->
 ``` http
-GET https://graph.microsoft.com/beta** Collection URI for microsoft.graph.windowsUpdates.azureADDevice not found
+GET https://graph.microsoft.com/beta/admin/windows/updates/updatableAssets/?$filter=isof('microsoft.graph.windowsUpdates.azureADDevice')
 ```
 
 
@@ -78,16 +78,29 @@ Content-Type: application/json
     {
       "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
       "id": "983f03cd-03cd-983f-cd03-3f98cd033f98",
+      "errors": [],
+      "enrollments": [
+        {
+          "@odata.type": "microsoft.graph.windowsUpdates.updateManagementEnrollment",
+          "updateCategory": "feature"
+        }
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
+      "id": "90b91efa-6d46-42cd-ad4d-381831773a85",
+      "errors": [],
+      "enrollments": []
+    },
+    {
+      "@odata.type": "#microsoft.graph.windowsUpdates.azureADDevice",
+      "id": "0ee3eb63-caf3-44ce-9769-b83188cc683d",
       "errors": [
         {
           "@odata.type": "microsoft.graph.windowsUpdates.azureADDeviceRegistrationError"
         }
       ],
-      "enrollments": [
-        {
-          "@odata.type": "microsoft.graph.windowsUpdates.updateManagementEnrollment"
-        }
-      ]
+      "enrollments": []
     }
   ]
 }
