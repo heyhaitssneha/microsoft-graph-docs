@@ -13,15 +13,15 @@ Namespace: microsoft.graph.windowsUpdates
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-**TODO: Add Description**
+Describes and controls the current state of a deployment.
 
 ## Properties
 |Property|Type|Description|
 |:---|:---|:---|
-|effectiveSinceDate|DateTimeOffset|**TODO: Add Description**|
-|reasons|[deploymentStateReason](../resources/windowsupdates-deploymentstatereason.md) collection|**TODO: Add Description**|
-|requestedValue|requestedDeploymentStateValue|**TODO: Add Description**. Possible values are: `none`, `paused`, `archived`.|
-|value|deploymentStateValue|**TODO: Add Description**. Possible values are: `scheduled`, `offering`, `paused`, `faulted`, `archived`.|
+|effectiveSinceDateTime|String (DateTimeOffset)|Date on which the current state became effective. Read-only.|
+|reasons|[deploymentStateReason](../resources/windowsupdates-deploymentstatereason.md) collection|Specifies the reasons the deployment has its state value. Read-only.|
+|requestedValue|String (requestedDeploymentStateValue)|Specifies the requested state of the deployment. Possible values are: `none`, `paused`, `archived`.|
+|value|String (deploymentStateValue)|Specifies the state of the deployment. Read-only. Possible values are: `scheduled`, `offering`, `paused`, `faulted`, `archived`.|
 
 ## Relationships
 None.
